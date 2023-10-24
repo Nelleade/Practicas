@@ -7,14 +7,23 @@
 <body>
 <div class="textito">
     <?php
-    $matriz = array(3, 1, 2, 0);
 
-    echo "El contenido de la matriz es el siguiente:<br>";
+    $matriz = array(
+    array(3, 1),
+    array(2, 0));
 
-    foreach ($matriz as $valores) {
-        echo $valores . " ";
+
+    echo "<table border='1'>";
+    foreach ($matriz as $fila) {
+        echo "<tr>";
+    foreach ($fila as $elemento) {
+        echo "<td>" . $elemento . "</td>";
     }
+    echo "</tr>";
+}
+echo "</table>";
     ?>
+
     <li><a href="Index.php">Volver</a></li><br>
 </div>
 </body>
