@@ -1,12 +1,25 @@
 <?php
+session_start();
+
+// Usuarios y sus contraseñas (puedes agregar más usuarios según sea necesario)
+$usuarios = [
+    'admin' => 'admin123',
+    'cliente1' => 'cliente123'
+];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verificar credenciales de usuario
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($username === 'admin' && $password === '1234') {
-        session_start();
+    // Verificar credenciales
+    if (array_key_exists($username, $usuarios) && $usuarios[$username] === $password) {
+        // Establecer variables de sesión
+        $_SESSION['username'] = $username;
         $_SESSION['login_time'] = date('Y-m-d H:i:s');
+
+        // Establecer cookie para recordar el usuario durante 1 día (86400 segundos)
+        setcookie('username', $username, time() + 86400, '/');
+        
         header('Location: php2.php');
         exit();
     } else {
