@@ -1,0 +1,12 @@
+- Es una interfaz ligera para poder acceder a bases de datos en PHP. Cada controlador de bases 
+de datos que implemente la interfaz PDO puede exponer características específicas de la 
+base de datos
+
+PDO ofrece las siguientes características funcionales:
+
+- Manejo de conexiones con los diferentes proveedores de base de datos
+- Manejo de los errores producidos en la conexión
+- Cierre y persistencias de las conexiones
+- Manejo de las transacciones, permitiendo el autocommit
+- Inserciones de procedimientos e instrucciones preparadas
+- Manejo de errores y avisos
